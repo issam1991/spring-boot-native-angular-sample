@@ -1,0 +1,156 @@
+
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.app-main {
+  padding: 2rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 1024px) {
+  .header-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .app-main {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+    position: relative;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .app-header h1 {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .header-badge {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .app-main {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0.75rem;
+  }
+
+  .header-content {
+    gap: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: clamp(1.125rem, 6vw, 1.75rem);
+  }
+
+  .header-badge {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .header-badge svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .app-main {
+    padding: 0.75rem 0.25rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .app-header {
+    padding: 0.5rem;
+  }
+
+  .header-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .app-main {
+    padding: 0.5rem 0.125rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    padding: 0.5rem 1rem;
+  }
+
+  .header-content {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .app-main {
+    padding: 0.5rem;
+  }
+}
