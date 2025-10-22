@@ -24,8 +24,8 @@ A full-stack web application demonstrating modern Java development with Spring B
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   Angular 20+   │    │  Spring Boot 3  │    │    MariaDB      │
-│   Frontend      │◄──►│   Native Image   │◄──►│    Database     │
-│   (Port 4200)   │    │   (Port 8080)    │    │   (Port 3306)   │
+│   Frontend      │◄──►│   Native Image  │◄──►│    Database     │
+│   (Port 4200)   │    │   (Port 8080)   │    │   (Port 3306)   │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
