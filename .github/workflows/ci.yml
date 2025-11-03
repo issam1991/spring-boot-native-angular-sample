@@ -31,6 +31,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
     
+    - name: Make mvnw executable
+      run: chmod +x ./mvnw
+    
     - name: Wait for MariaDB
       run: |
         echo "Waiting for MariaDB to be ready..."
