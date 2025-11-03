@@ -21,12 +21,6 @@ jobs:
           MYSQL_PASSWORD: apppassword
         ports:
           - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=5s
-          --health-timeout=3s
-          --health-retries=20
-          --health-start-period=20s
 
     steps:
     - uses: actions/checkout@v4
@@ -36,6 +30,18 @@ jobs:
       with:
         java-version: '21'
         distribution: 'temurin'
+    
+    - name: Wait for MariaDB
+      run: |
+        echo "Waiting for MariaDB to be ready..."
+        for i in {1..30}; do
+          if timeout 2 bash -c "cat < /dev/null > /dev/tcp/localhost/3306" 2>/dev/null; then
+            echo "MariaDB is ready!"
+            break
+          fi
+          echo "Attempt $i/30: MariaDB not ready yet, waiting 2 seconds..."
+          sleep 2
+        done
         
     - name: Run backend tests
       run: ./mvnw test
