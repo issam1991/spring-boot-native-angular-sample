@@ -63,13 +63,8 @@ A full-stack web application demonstrating modern Java development with Spring B
 
 ### 1. Clone the Repository
 ```bash
-<<<<<<< HEAD
-git clone https://github.com/issam1991/spring-boot-native-angular-sample.git
-cd spring-boot-native-angular-sample
-=======
 git clone https://github.com/issam1991/spring-boot-native-angular-sample
-cd native
->>>>>>> dd05ca10d341383b25f526abfb20b78203671e1a
+cd spring-boot-native-angular-sample
 ```
 
 ### 2. Start the Database
@@ -85,9 +80,8 @@ docker-compose up mariadb -d
 # Run in JVM mode
 ./mvnw spring-boot:run
 
-# Or build native image (requires GraalVM)
-./mvnw -Pnative native:compile
-./target/native-native
+# Or build native Docker image
+./mvnw spring-boot:build-image -Pnative
 ```
 
 ### 4. Build and Run Frontend
@@ -106,8 +100,8 @@ npm start
 
 ### Full Stack with Docker Compose
 ```bash
-# Build the native image first
-./mvnw -Pnative native:compile
+# Build the native Docker image first
+./mvnw spring-boot:build-image -Pnative
 
 # Start all services
 docker-compose up -d
@@ -196,11 +190,8 @@ npm test
 # Package JAR
 ./mvnw package
 
-# Build native image
-./mvnw -Pnative native:compile
-
-# Run with Docker
-./mvnw spring-boot:build-image
+# Build native Docker image
+./mvnw spring-boot:build-image -Pnative
 ```
 
 ### Frontend
