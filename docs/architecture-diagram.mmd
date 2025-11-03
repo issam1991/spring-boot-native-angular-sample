@@ -1,0 +1,19 @@
+graph LR
+    subgraph "Frontend Layer"
+        A[Angular 20+<br/>Frontend<br/>Port 4200]
+    end
+    
+    subgraph "Backend Layer"
+        B[Spring Boot 3<br/>Native Image<br/>Port 8080]
+    end
+    
+    subgraph "Database Layer"
+        C[MariaDB<br/>Database<br/>Port 3306]
+    end
+    
+    A <-->|REST API| B
+    B <-->|JPA/Hibernate| C
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8

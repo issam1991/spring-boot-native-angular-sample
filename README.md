@@ -63,8 +63,8 @@ A full-stack web application demonstrating modern Java development with Spring B
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd native
+git clone https://github.com/issam1991/spring-boot-native-angular-sample.git
+cd spring-boot-native-angular-sample
 ```
 
 ### 2. Start the Database

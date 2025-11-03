@@ -1,0 +1,38 @@
+graph TB
+    subgraph "Client Layer"
+        U[User Browser]
+    end
+    
+    subgraph "Frontend Layer"
+        A[Angular 20+<br/>Frontend<br/>Port 4200]
+        N[nginx<br/>Static Server]
+    end
+    
+    subgraph "Backend Layer"
+        B[Spring Boot 3<br/>Native Image<br/>Port 8080]
+        S[Swagger UI<br/>API Docs]
+    end
+    
+    subgraph "Database Layer"
+        C[MariaDB<br/>Database<br/>Port 3306]
+    end
+    
+    subgraph "Infrastructure"
+        D[Docker Compose<br/>Orchestration]
+    end
+    
+    U -->|HTTP| A
+    A -->|REST API| B
+    B -->|JPA/Hibernate| C
+    B -->|API Docs| S
+    N -->|Static Files| A
+    D -.->|Manages| A
+    D -.->|Manages| B
+    D -.->|Manages| C
+    
+    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style B fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    style C fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    style N fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style S fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style D fill:#f1f8e9,stroke:#33691e,stroke-width:2px

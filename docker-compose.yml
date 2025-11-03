@@ -35,6 +35,24 @@ services:
       - "8080:8080"
     networks:
       - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 64m
+
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: native-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - app
+    environment:
+      - API_URL=http://app:8080
+    networks:
+      - app-network
 
 volumes:
   mariadb_data:
